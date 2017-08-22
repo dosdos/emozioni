@@ -1,0 +1,1 @@
+web: gunicorn emozioni.wsgi --log-file -

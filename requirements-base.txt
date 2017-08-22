@@ -1,0 +1,4 @@
+Django==1.11.1
+dj-database-url==0.4.1
+whitenoise==3.3.0
+mechanize==0.3.3
