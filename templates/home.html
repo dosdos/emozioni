@@ -1,1 +1,25 @@
-{{ welcome }}
+<h2>Inserisci una o pi&ugrave; di massimo 140 caratteri</h2>
+<form action="{% url 'home' %}" method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Analizza">
+</form>
+<br>
+<hr>
+<br>
+{% if analysis %}
+    <h2> Emozioni individuate: </h2>
+    <ul>
+        {% for emotion in analysis.emotions %}
+            <li>{{ emotion }}</li>
+        {% endfor %}
+
+    </ul>
+    <h2> Sentimento individuato: </h2>
+    <p>Il valore 1 indica massima positivit&agrave;, mentre -1 indica massima negativit&agrave;.</p>
+    <ul>
+        {% for sentence in analysis.sentences %}
+            <li><i>"{{ sentence.text.content }}"</i>: <b>{{ sentence.sentiment.score }}</b></li>
+        {% endfor %}
+    </ul>
+{% endif %}

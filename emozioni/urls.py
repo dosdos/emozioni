@@ -7,5 +7,5 @@ admin.site.site_header = settings.ADMIN_SITE_HEADER
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^analysis/', include('analysis.urls')),
+    url(r'', include('analysis.urls')),
 ]
