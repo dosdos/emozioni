@@ -7,7 +7,7 @@ from .models import Emotion, Search
 @admin.register(Emotion)
 class EmotionAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name", )}
-    list_display = ('name', 'slug', 'category')
+    list_display = ('name', 'slug', 'category', 'last_change_date')
     list_filter = ('category', )
     search_fields = ('name', )
     readonly_fields = ('creation_date', 'last_change_date')
