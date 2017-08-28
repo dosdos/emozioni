@@ -122,6 +122,10 @@ STATICFILES_FINDERS = (
 )
 
 
+# Google API keys
+NLP_API_KEY = os.environ.get('NLP_API_KEY')
+
+
 # Loading test/prod settings based on ENV settings
 ENV = os.environ.get('ENV', 'local')
 if ENV == 'prod':

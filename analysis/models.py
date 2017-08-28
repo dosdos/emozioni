@@ -29,11 +29,11 @@ class Emotion(DateTimeModel):
         verbose_name_plural = _("Emotions")
 
     def save(self, *args, **kwargs):
-        self.s = slugify(self.name)
+        self.slug = slugify(self.name)
         super(Emotion, self).save(*args, **kwargs)
 
     def __str__(self):
-        return "{} ({})".format(self.name, self.category)
+        return u"{} ({})".format(self.name, self.category)
 
 
 @python_2_unicode_compatible
@@ -48,4 +48,4 @@ class Search(DateTimeModel):
         verbose_name_plural = _("Searches")
 
     def __str__(self):
-        return "{}".format(self.query)
+        return u"{}".format(self.query)

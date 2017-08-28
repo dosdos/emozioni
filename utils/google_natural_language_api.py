@@ -5,15 +5,14 @@ import sys
 from pprint import pprint
 
 import httplib2
+from django.conf import settings
 from googleapiclient import discovery
 from googleapiclient.errors import HttpError
-
-NLP_API_KEY = "AIzaSyDVQQU2X9oeEzTeo9Uv0VJ_op5pyUfiC1I"
 
 
 class GoogleNLP(object):
     discovery_url = 'https://{api}.googleapis.com/$discovery/rest?version={apiVersion}'
-    key = NLP_API_KEY
+    key = settings.NLP_API_KEY
 
     def __init__(self, api='language', version='v1beta1'):
         self.service = discovery.build(

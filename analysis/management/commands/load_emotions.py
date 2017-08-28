@@ -11,11 +11,18 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         time_start = time.clock()
-        added = 0
+        added = tot = 0
 
         for category in EMOTIONS.keys():
             for emotion in EMOTIONS[category]:
-                Emotion.objects.get_or_create(name=emotion, category=category)
-                added += 1
+                emotion = emotion.lower()
+                try:
+                    Emotion.objects.get(name=emotion.title())
+                    print "DOPPIA!", emotion
+                except Emotion.DoesNotExist:
+                    Emotion(name=emotion.title(), category=category).save()
+                    added += 1
+                tot += 1
+                print "[{}] {} -> {}".format(tot, emotion, category)
 
-        print "{} emotions loaded or updated in {} seconds".format(added, time.clock() - time_start)
+        print "{}/{} emotions loaded or updated in {} seconds".format(added, tot, time.clock() - time_start)

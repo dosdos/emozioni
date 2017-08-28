@@ -21,8 +21,8 @@ def get_nlp_analysis(query):
 def get_sentences(json_dump):
     emotions = {emotion.slug: emotion.category for emotion in Emotion.objects.all()}
     analysis = json.loads(json_dump)
-    matching_emotions = [emotions.get(token['lemma']) for token in analysis['tokens'] if token['lemma'] in emotions]
+    matching = [emotions.get(token['lemma']) for token in analysis.get('tokens', []) if token['lemma'] in emotions]
     return {
-        'sentences': analysis['sentences'],
-        'emotions': matching_emotions,
+        'sentences': analysis['sentences'] if 'sentences' in analysis else [],
+        'emotions': matching,
     }
