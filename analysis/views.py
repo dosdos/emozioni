@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-import json
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from analysis.services import get_nlp_analysis, get_sentences
 from .forms import SearchForm
 
 
+@login_required(login_url='/admin/login/')
 def home(request, template_name="home.html"):
     form = SearchForm()
     analysis = {}
