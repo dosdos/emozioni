@@ -47,7 +47,7 @@ class GoogleNLP(object):
 
         try:
             response = service_request.execute()
-        except HttpError, e:
+        except HttpError as e:
             response = {'error': e}
 
         return response
@@ -75,7 +75,7 @@ class GoogleNLP(object):
 
         try:
             response = service_request.execute()
-        except HttpError, e:
+        except HttpError as e:
             response = {'error': e}
 
         return response
@@ -112,7 +112,7 @@ class GoogleNLP(object):
 
         try:
             response = service_request.execute()
-        except HttpError, e:
+        except HttpError as e:
             response = {'error': e}
 
         return response

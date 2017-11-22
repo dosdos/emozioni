@@ -7,15 +7,13 @@ from utils.google_natural_language_api import GoogleNLP
 
 
 def get_nlp_analysis(query):
-    print query
     try:
         nlp = GoogleNLP()
         nlp_analysis = nlp.annotate_text(query)
         nlp_analysis = json.dumps(nlp_analysis)
     except Exception as e:
         nlp_analysis = '{}'
-        print e
-    print nlp_analysis
+        print(e)
     return nlp_analysis
 
 
