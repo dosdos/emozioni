@@ -15,6 +15,9 @@ MENTION_TYPES = {
     'COMMON': "Comune",
 }
 
+SAMPLE_SENTENCE = "Il giocatore che mi rende più contento di tutti è Messi. Invece Ronaldo non mi piace proprio, " \
+                  "anche se ho la sua maglia del Real."
+
 SORROW = 'tristezza'
 ANGER = 'rabbia'
 SURPRISE = 'sorpresa'
