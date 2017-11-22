@@ -1,4 +1,20 @@
 # -*- coding: utf-8 -*-
+ENTITY_TYPES = {
+    'UNKNOWN': "Sconosciuto",
+    'PERSON': "Persona",
+    'LOCATION': "Luogo",
+    'ORGANIZATION': "Organizzazione",
+    'EVENT': "Evento",
+    'WORK_OF_ART': "Opera d'arte",
+    'CONSUMER_GOOD': "Prodotto",
+    'OTHER': "Altro",
+}
+MENTION_TYPES = {
+    'UNKNOWN': "Sconosciuto",
+    'PROPER': "Proprio",
+    'COMMON': "Comune",
+}
+
 SORROW = 'tristezza'
 ANGER = 'rabbia'
 SURPRISE = 'sorpresa'
