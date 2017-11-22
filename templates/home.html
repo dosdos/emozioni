@@ -1,6 +1,4 @@
 <h2>Inserisci una o pi&ugrave; frasi di massimo 140 caratteri</h2>
-<p>Frase di esempio:</p>
-<p>Il giocatore che mi rende più contento di tutti è Messi. Invece Ronaldo non mi piace proprio, anche se ho la sua maglia del Real.</p>
 <form action="{% url 'home' %}" method="POST">
     {{ form.as_p }}
     {% csrf_token %}
