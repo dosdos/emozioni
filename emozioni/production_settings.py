@@ -12,4 +12,4 @@ DATABASES = {
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Allow all host headers
-ALLOWED_HOSTS = ['emozioni.herokuapp.com']
+ALLOWED_HOSTS = ['emozioni.herokuapp.com', '*']
