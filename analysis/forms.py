@@ -5,7 +5,7 @@ from .models import Search
 
 
 class SearchForm(forms.ModelForm):
-    query = forms.CharField(widget=forms.Textarea)
+    query = forms.CharField(widget=forms.Textarea(attrs={'placeholder': "Scrivi qui la tua frase!"}))
 
     class Meta:
         model = Search
