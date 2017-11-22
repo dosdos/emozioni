@@ -1,6 +1,8 @@
 import dj_database_url
 
 
+print('-------- Production settings have been loaded. --------')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -12,4 +14,4 @@ DATABASES = {
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Allow all host headers
-ALLOWED_HOSTS = ['emozioni.herokuapp.com', '*']
+ALLOWED_HOSTS = ['emozioni.herokuapp.com']
