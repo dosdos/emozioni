@@ -24,5 +24,5 @@ def get_sentences(json_dump):
     matching = [emotions.get(token['lemma']) for token in analysis.get('tokens', []) if token['lemma'] in emotions]
     return {
         'sentences': analysis['sentences'] if 'sentences' in analysis else [],
-        'emotions': matching,
+        'emotions': set(matching),
     }
