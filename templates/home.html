@@ -1,4 +1,6 @@
 <h2>Inserisci una o pi&ugrave; frasi di massimo 140 caratteri</h2>
+<p>Frase di esempio:</p>
+<p>Il giocatore che mi rende più contento di tutti è Messi. Invece Ronaldo non mi piace proprio, anche se ho la sua maglia del Real.</p>
 <form action="{% url 'home' %}" method="POST">
     {{ form.as_p }}
     {% csrf_token %}
@@ -8,12 +10,14 @@
 <hr>
 <br>
 {% if analysis %}
+    <h2> Lingua: <b>{{ analysis.language }}</b></h2>
     <h2> Emozioni individuate: </h2>
     <ul>
         {% for emotion in analysis.emotions %}
             <li>{{ emotion }}</li>
+        {% empty %}
+            <li>-</li>
         {% endfor %}
-
     </ul>
     <h2> Sentimento individuato: </h2>
     <p>Il valore 1 indica massima positivit&agrave;, mentre -1 indica massima negativit&agrave;.</p>
@@ -22,4 +26,12 @@
             <li><i>"{{ sentence.text.content }}"</i>: <b>{{ sentence.sentiment.score }}</b></li>
         {% endfor %}
     </ul>
+    {% if analysis.entities %}
+        <h2> Entit&agrave; individuate: </h2>
+        <ul>
+            {% for entity in analysis.entities %}
+                <li><i>{{ entity.name_type }}</i>: {% if entity.wiki_url %} <a target="_blank" href="{{ entity.wiki_url }}">{{ entity.name }}</a> {% else %} {{ entity.name }} {% endif %} </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endif %}
