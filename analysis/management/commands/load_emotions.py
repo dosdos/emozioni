@@ -7,7 +7,7 @@ from analysis.models import Emotion
 
 
 class Command(BaseCommand):
-    help = 'Create and assign Knowledge Graph nodes into learning paths entities'
+    help = 'Load emotion mapping from constants file'
 
     def handle(self, *args, **options):
         time_start = time.clock()
